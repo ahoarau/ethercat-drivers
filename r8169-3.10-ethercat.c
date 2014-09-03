@@ -6134,14 +6134,13 @@ static void rtl_tx(struct net_device *dev, struct rtl8169_private *tp)
 		 * 8168 hack: TxPoll requests are lost when the Tx packets are
 		 * too close. Let's kick an extra TxPoll request when a burst
 		 * of start_xmit activity is detected (if it is not detected,
-		 * it is slow enough). -- FR // A.H : let's try without. 
-		 * A.H : seems perfect (avoids idle blabla warning nonsense)
+		 * it is slow enough). -- FR
 		 */
-		/*if (tp->cur_tx != dirty_tx) {
+		if (tp->cur_tx != dirty_tx) {
 			void __iomem *ioaddr = tp->mmio_addr;
 
 			RTL_W8(TxPoll, NPQ);
-		}*/
+		}
 	}
 }
 
