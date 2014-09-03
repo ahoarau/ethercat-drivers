@@ -22,13 +22,15 @@ patch -p1 < ethercat-drivers/r8169-3.8-3.10.patch
 ```
 
 #### Build the EtherCAT master modules
+Example with kernel 3.10 and driver r8169 (Meka robot).
 ```bash
 ./configure --enable-cycles --enable-r8169  --with-rtai-dir=/usr/realtime/ --disable-8139too --with-r8169-kernel=3.10
 make -j$[$(nproc)+1] all modules
 sudo make modules_install install
 sudo depmod
 ```
-#### Configure your environnement (see the install note on ethercat-1.5.2)
+#### Configure your environnement
+
 ```bash
 sudo -s
 echo KERNEL==\"EtherCAT[0-9]*\", MODE=\"0664\" > /etc/udev/rules.d/99-EtherCAT.rules
