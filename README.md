@@ -11,11 +11,11 @@ For now this only contains **r8169** driver, for kernel **3.8.x** and **3.10.x**
 ```bash
 wget http://etherlab.org/download/ethercat/ethercat-1.5.2.tar.bz2
 tar xfvj ethercat-1.5.2.tar.bz2
-cd ethercat-1.5.2
 ```
 
 #### Get the drivers
 ```bash
+cd ethercat-1.5.2
 git clone https://github.com/ahoarau/ethercat-drivers.git
 ## Apply patch
 patch -p1 < ethercat-drivers/r8169-3.8-3.10.patch
