@@ -1,6 +1,6 @@
 diff -rupN ethercat-1.5.2/devices/Makefile.am ethercat-1.5.2-meka/devices/Makefile.am
 --- ethercat-1.5.2/devices/Makefile.am	2013-02-12 13:17:16.000000000 +0100
-+++ ethercat-1.5.2-meka/devices/Makefile.am	2014-08-22 15:26:07.047388000 +0200
++++ ethercat-1.5.2-meka/devices/Makefile.am	2014-09-03 17:42:37.700191211 +0200
 @@ -133,6 +133,10 @@ noinst_HEADERS = \
  	r8169-3.2-orig.c \
  	r8169-3.4-ethercat.c \
@@ -14,8 +14,8 @@ diff -rupN ethercat-1.5.2/devices/Makefile.am ethercat-1.5.2-meka/devices/Makefi
  	Kbuild.in
 diff -rupN ethercat-1.5.2/devices/r8169-3.10-ethercat.c ethercat-1.5.2-meka/devices/r8169-3.10-ethercat.c
 --- ethercat-1.5.2/devices/r8169-3.10-ethercat.c	1970-01-01 01:00:00.000000000 +0100
-+++ ethercat-1.5.2-meka/devices/r8169-3.10-ethercat.c	2014-09-03 16:41:37.615745000 +0200
-@@ -0,0 +1,7279 @@
++++ ethercat-1.5.2-meka/devices/r8169-3.10-ethercat.c	2014-09-03 17:43:20.795512640 +0200
+@@ -0,0 +1,7278 @@
 +/*
 + * r8169.c: RealTek 8169/8168/8101 ethernet driver.
 + *
@@ -6152,14 +6152,13 @@ diff -rupN ethercat-1.5.2/devices/r8169-3.10-ethercat.c ethercat-1.5.2-meka/devi
 +		 * 8168 hack: TxPoll requests are lost when the Tx packets are
 +		 * too close. Let's kick an extra TxPoll request when a burst
 +		 * of start_xmit activity is detected (if it is not detected,
-+		 * it is slow enough). -- FR // A.H : let's try without. 
-+		 * A.H : seems perfect (avoids idle blabla warning nonsense)
++		 * it is slow enough). -- FR
 +		 */
-+		/*if (tp->cur_tx != dirty_tx) {
++		if (tp->cur_tx != dirty_tx) {
 +			void __iomem *ioaddr = tp->mmio_addr;
 +
 +			RTL_W8(TxPoll, NPQ);
-+		}*/
++		}
 +	}
 +}
 +
@@ -7297,7 +7296,7 @@ diff -rupN ethercat-1.5.2/devices/r8169-3.10-ethercat.c ethercat-1.5.2-meka/devi
 +module_pci_driver(rtl8169_pci_driver);
 diff -rupN ethercat-1.5.2/devices/r8169-3.10-orig.c ethercat-1.5.2-meka/devices/r8169-3.10-orig.c
 --- ethercat-1.5.2/devices/r8169-3.10-orig.c	1970-01-01 01:00:00.000000000 +0100
-+++ ethercat-1.5.2-meka/devices/r8169-3.10-orig.c	2014-02-22 21:41:54.000000000 +0100
++++ ethercat-1.5.2-meka/devices/r8169-3.10-orig.c	2014-09-03 17:42:37.708191848 +0200
 @@ -0,0 +1,7150 @@
 +/*
 + * r8169.c: RealTek 8169/8168/8101 ethernet driver.
@@ -14451,7 +14450,7 @@ diff -rupN ethercat-1.5.2/devices/r8169-3.10-orig.c ethercat-1.5.2-meka/devices/
 +module_pci_driver(rtl8169_pci_driver);
 diff -rupN ethercat-1.5.2/devices/r8169-3.8-ethercat.c ethercat-1.5.2-meka/devices/r8169-3.8-ethercat.c
 --- ethercat-1.5.2/devices/r8169-3.8-ethercat.c	1970-01-01 01:00:00.000000000 +0100
-+++ ethercat-1.5.2-meka/devices/r8169-3.8-ethercat.c	2014-08-21 14:22:50.419928000 +0200
++++ ethercat-1.5.2-meka/devices/r8169-3.8-ethercat.c	2014-09-03 17:42:37.712192166 +0200
 @@ -0,0 +1,7179 @@
 +/*
 + * r8169.c: RealTek 8169/8168/8101 ethernet driver.
@@ -21634,7 +21633,7 @@ diff -rupN ethercat-1.5.2/devices/r8169-3.8-ethercat.c ethercat-1.5.2-meka/devic
 +module_pci_driver(rtl8169_pci_driver);
 diff -rupN ethercat-1.5.2/devices/r8169-3.8-orig.c ethercat-1.5.2-meka/devices/r8169-3.8-orig.c
 --- ethercat-1.5.2/devices/r8169-3.8-orig.c	1970-01-01 01:00:00.000000000 +0100
-+++ ethercat-1.5.2-meka/devices/r8169-3.8-orig.c	2013-05-11 22:57:46.000000000 +0200
++++ ethercat-1.5.2-meka/devices/r8169-3.8-orig.c	2014-09-03 17:42:37.712192166 +0200
 @@ -0,0 +1,7016 @@
 +/*
 + * r8169.c: RealTek 8169/8168/8101 ethernet driver.
