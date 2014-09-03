@@ -16,7 +16,7 @@ tar xfvj ethercat-1.5.2.tar.bz2
 #### Get the drivers
 ```bash
 cd ethercat-1.5.2
-git clone https://github.com/ahoarau/ethercat-drivers.git
+wget https://raw.githubusercontent.com/ahoarau/ethercat-drivers/master/r8169-3.8-3.10.patch
 ## Apply patch
 patch -p1 < ethercat-drivers/r8169-3.8-3.10.patch
 ```
