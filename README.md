@@ -53,6 +53,14 @@ See output messages with dmesg:
 dmesg
 ```
 
+### Start EtherCAT master at startup
+```
+cd /opt/etherlab
+sudo cp etc/init.d/ethercat /etc/init.d/
+sudo chmod a+x /etc/init.d/ethercat
+sudo update-rc.d ethercat start 51 S .
+```
+
 > Contact : Antoine Hoarau <hoarau.robotics@gmail.com>
 
 
