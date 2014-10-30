@@ -38,11 +38,17 @@ cp etc/init.d/ethercat /etc/init.d/ethercat # to start the master
 cp etc/sysconfig/ethercat /etc/sysconfig/ethercat # the config file
 exit
 ```
-Then copy the mac address of the ethernet card you'd like to use (use ifconfig) to MASTER0_DEVICE and set the driver your card should use to DEVICE_MODULES ( example: DEVICE_MODULES="r8169"):
+Then copy the mac address of the ethernet card you'd like to use (use ifconfig, on meka-mob it's 00:01:2e:49:9c:a0) to MASTER0_DEVICE and set the driver your card should use to DEVICE_MODULES ( meka-mob uses r8169):
 
 ```bash
 sudo nano /etc/sysconfig/ethercat
 ```
+>In Meka's RTPC, the file looks like this:
+```
+MASTER0_DEVICE="00:01:2e:49:9c:a0"
+DEVICE_MODULES="r8169"
+```
+
 #### Start EtherCAT master
 Then when you have configured your environnement (see the install note on ethercat-1.5.2), you can start the driver:
 ```bash
